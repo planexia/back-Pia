@@ -9,7 +9,7 @@ COPY mvnw mvnw
 COPY .mvn .mvn
 RUN chmod +x mvnw
 
-# Copia el resto del proyecto
+# Copia el resto del proyecto al contenedor
 COPY . .
 
 # Compila el proyecto usando Maven y genera el JAR
