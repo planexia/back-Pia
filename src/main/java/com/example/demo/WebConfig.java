@@ -15,4 +15,3 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*");
     }
 }
-https://planexia-sa31.netlify.app/
