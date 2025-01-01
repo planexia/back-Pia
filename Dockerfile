@@ -17,7 +17,10 @@ FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
 # Copia el archivo JAR generado desde la etapa de construcción
-COPY --from=builder /app/target/back2.4-1-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/*.jar app.jar
+
+# Configura el puerto predeterminado para Render (8080)
+EXPOSE 8080
 
 # Comando de entrada para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
