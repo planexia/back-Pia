@@ -1,14 +1,27 @@
-# Imagen base de Java
-FROM eclipse-temurin:17-jdk-jammy
 
-# Establecer el directorio de trabajo dentro del contenedor
+
+# Usa una imagen base con Java
+
+FROM openjdk:17-jdk-slim
+
+# Definir el directorio de trabajo dentro del contenedor
+
 WORKDIR /app
 
-# Copiar el JAR generado al contenedor
+
+# Copiar el archivo JAR generado en el directorio de trabajo
+
+
 COPY target/*.jar app.jar
 
-# Exponer el puerto donde la aplicación escucha (por defecto 8080)
+
+# Exponer el puerto en el que tu aplicaciÃ³n escucha (por defecto 8080 para Spring Boot)
+
+
 EXPOSE 8080
 
-# Comando para ejecutar la aplicación
+
+# Comando para ejecutar el JAR dentro del contenedor
+
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
