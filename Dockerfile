@@ -4,11 +4,16 @@ FROM eclipse-temurin:17-jdk-jammy AS builder
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia todos los archivos del proyecto al contenedor
+# Copia el wrapper de Maven y otorga permisos de ejecución
+COPY mvnw mvnw
+COPY .mvn .mvn
+RUN chmod +x mvnw
+
+# Copia el resto del proyecto
 COPY . .
 
 # Compila el proyecto usando Maven y genera el JAR
-RUN mvnw clean package -DskipTests
+RUN ./mvnw clean package -DskipTests
 
 # Etapa 2: Ejecución
 FROM eclipse-temurin:17-jdk-jammy
