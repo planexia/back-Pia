@@ -21,7 +21,7 @@ public class EmailController {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom("planexia.sa@gmail.com"); // Configura correctamente el remitente
-            message.setTo("rpruiz33@gmail.com"); // Cambia esto si necesitas múltiples destinatarios
+            message.setTo("planexia.sa@gmail.com"); // Cambia esto si necesitas múltiples destinatarios
             message.setSubject("Consulta desde el formulario de contacto");
             message.setText("Nombre: " + emailRequest.getName() + "\n"
                     + "Email: " + emailRequest.getEmail() + "\n"
